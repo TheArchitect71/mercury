@@ -1,18 +1,23 @@
-export const products = [
+import { Product } from './product-interface';
+
+export const PRODUCTS: Product[] = [
     {
-      name: 'Phone XL',
+      id: 1,
+      name: 'Pineapple Express',
+      description: 'Need I say more?',
       price: 799,
-      description: 'A large phone with one of the best screens'
     },
     {
-      name: 'Phone Mini',
+      id: 2,
+      name: 'Sky Walker',
+      description: 'A great flower with one of the best experiences',
       price: 699,
-      description: 'A great phone with one of the best cameras'
     },
     {
-      name: 'Phone Standard',
+      id: 3,
+      name: 'Mexican Dro',
+      description: 'Say Less',
       price: 299,
-      description: ''
     }
   ];
   
