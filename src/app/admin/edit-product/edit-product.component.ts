@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product } from 'src/app/product-interface'
+
 
 @Component({
   selector: 'app-edit-product',
@@ -6,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
-  product = 'Pineapple Express'
+  @Input() product: Product;
   constructor() { }
-
+  
+  
   ngOnInit(): void {
   }
 
