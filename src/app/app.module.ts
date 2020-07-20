@@ -15,6 +15,7 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { EditProductComponent } from './admin/edit-product/edit-product.component';
 import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { MessagesComponent } from './feedback/messages/messages.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { MessagesComponent } from './feedback/messages/messages.component';
     EditProductComponent,
     AdminListComponent,
     MessagesComponent,
+    OrdersComponent,
   ],
   bootstrap: [AppComponent],
 })
