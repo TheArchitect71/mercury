@@ -25,4 +25,17 @@ export class AdminListComponent implements OnInit {
       this.products = products;
     });
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {return}
+    this.adminService.addProduct({name} as Product).subscribe(product => {
+      this.products.push(product);
+    });
+  }
+
+  delete(product: Product): void {
+    this.products = this.products.filter(p => p !== product);
+    this.adminService.deleteProduct(product).subscribe();
+  }
 }
