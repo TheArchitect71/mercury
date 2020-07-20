@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/product-interface';
 
 import { AdminService } from 'src/app/admin/admin.service';
-import { MessageService } from 'src/app/feedback/message.service';
 
 @Component({
   selector: 'app-admin-list',
@@ -15,7 +14,6 @@ export class AdminListComponent implements OnInit {
   selectedProduct: Product;
   constructor(
     private adminService: AdminService,
-    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {

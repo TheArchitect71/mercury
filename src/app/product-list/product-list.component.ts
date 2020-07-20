@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { PRODUCTS } from '../products';
+import { Product } from '../product-interface';
+import { AdminService } from '../admin/admin.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,7 +9,19 @@ import { PRODUCTS } from '../products';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  products = PRODUCTS;
+  products: Product[];
+
+  constructor (private adminService: AdminService) {}
+
+  ngOnInit(): void {
+    this.getProducts();
+  }
+
+  getProducts(): void {
+    this.adminService.getProducts().subscribe(products => {
+      this.products = products;
+    })
+  }
 
   share() {
     window.alert('The product has been shared!');

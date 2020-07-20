@@ -29,6 +29,11 @@ export class EditProductComponent implements OnInit {
     })
   }
 
+  save(): void {
+    this.adminService.updateProduct(this.product)
+      .subscribe(() => this.goBack());
+  }
+
   goBack(): void {
     this.location.back();
   }
