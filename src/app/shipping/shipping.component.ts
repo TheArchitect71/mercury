@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 import { CartService } from '../cart.service';
 
@@ -9,10 +10,12 @@ import { CartService } from '../cart.service';
 })
 export class ShippingComponent implements OnInit {
   shippingCosts;
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private location: Location) { }
 
   ngOnInit(): void {
     this.shippingCosts = this.cartService.getShippingPrices();
   }
-
+  goBack(): void {
+    this.location.back();
+  }
 }

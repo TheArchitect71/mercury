@@ -11,7 +11,7 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./edit-product.component.css'],
 })
 export class EditProductComponent implements OnInit {
-  @Input() product: Product;
+  product: Product;
   constructor(
     private adminService: AdminService,
     private route: ActivatedRoute,
@@ -27,5 +27,9 @@ export class EditProductComponent implements OnInit {
     this.adminService.getProduct(id).subscribe(product => {
       this.product = product;
     })
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

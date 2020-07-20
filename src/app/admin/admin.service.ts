@@ -26,6 +26,6 @@ export class AdminService {
 
   getProduct(id:number): Observable<Product> {
     this.messageService.add(`Product Service: fetched product ${id}`);
-    return of(PRODUCTS.find(hero => hero.id === id));
+    return of(PRODUCTS.find(product => product.id === id));
   }
 }
