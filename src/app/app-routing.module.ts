@@ -12,7 +12,7 @@ import { EditProductComponent } from './admin/edit-product/edit-product.componen
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
-  { path: 'products/:productId', component: ProductDetailsComponent },
+  { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'shipping', component: ShippingComponent },
   { path: 'admin/list', component: AdminListComponent},

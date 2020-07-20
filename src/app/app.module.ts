@@ -17,6 +17,9 @@ import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { MessagesComponent } from './feedback/messages/messages.component';
 import { OrdersComponent } from './orders/orders.component';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -24,6 +27,9 @@ import { OrdersComponent } from './orders/orders.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   declarations: [
     AppComponent,
