@@ -19,6 +19,7 @@ import { OrdersComponent } from './orders/orders.component';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import { ProductSearchComponent } from './product-search/product-search.component';
 
 @NgModule({
   imports: [
@@ -43,6 +44,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
     AdminListComponent,
     MessagesComponent,
     OrdersComponent,
+    ProductSearchComponent,
   ],
   bootstrap: [AppComponent],
 })

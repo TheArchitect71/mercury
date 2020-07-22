@@ -1,6 +1,7 @@
 <h2>My Products</h2>
+<app-product-search></app-product-search>
 <div>
-  <label>Product Name:
+  <label>Add a Product:
     <input #productName />
   </label>
   <button (click)="add(productName.value); productName.value=''">Add</button>

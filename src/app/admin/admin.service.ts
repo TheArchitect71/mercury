@@ -75,7 +75,21 @@ export class AdminService {
       )
   }
 
-  /** Log a HeroService message with the MessageService */
+  /* GET products whose name contains search term */
+searchProducts(term: string): Observable<Product[]> {
+  if (!term.trim()) {
+    // if not search term, return empty hero array.
+    return of([]);
+  }
+  return this.http.get<Product[]>(`${this.productsUrl}/?name=${term}`).pipe(
+    tap(x => x.length ?
+       this.log(`found products matching "${term}"`) :
+       this.log(`no products matching "${term}"`)),
+    catchError(this.handleError<Product[]>('searchProducts', []))
+  );
+}
+
+  /** Log a Admin Service message with the MessageService */
   private log(message: string) {
     this.messageService.add(`Admin Service: ${message}`);
   }
