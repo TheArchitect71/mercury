@@ -8,18 +8,71 @@ import { Product } from './product-interface';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const products = [
-      { id: 11, name: 'Dr Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      {
+        id: 11,
+        name: 'Acapulco Gold',
+        description:
+          'Curabitur ac nulla risus.',
+        price: 45,
+      },
+      {
+        id: 12,
+        name: 'Ace of Spades',
+        description:
+          'Curabitur ac nulla risus.',
+        price: 40,
+      },
+      {
+        id: 13,
+        name: 'Alien Cookies',
+        description:
+          'Curabitur ac nulla risus.',
+        price: 36,
+      },
+      {
+        id: 14,
+        name: 'Apollo 13',
+        description:
+          'Curabitur ac nulla risus.',
+        price: 29,
+      },
+      {
+        id: 15,
+        name: 'Blue Diesel',
+        description:
+          'Curabitur ac nulla risus.',
+        price: 38,
+      },
+      {
+        id: 16,
+        name: 'Cornbread',
+        description:
+          'Curabitur ac nulla risus.',
+        price: 15,
+      },
+      {
+        id: 17,
+        name: 'Grand Hindu',
+        description:
+          'Curabitur ac nulla risus.',
+        price: 21,
+      },
+      {
+        id: 18,
+        name: 'La Mamalona',
+        description:
+          'Curabitur ac nulla risus.',
+        price: 37,
+      },
+      {
+        id: 19,
+        name: `Skywalker`,
+        description:
+          'Curabitur ac nulla risus.',
+        price: 20,
+      }
     ];
-    return {products};
+    return { products };
   }
 
   // Overrides the genId method to ensure that a product always has an id.
@@ -28,6 +81,8 @@ export class InMemoryDataService implements InMemoryDbService {
   // if the products array is not empty, the method below returns the highest
   // product id + 1.
   genId(products: Product[]): number {
-    return products.length > 0 ? Math.max(...products.map(product => product.id)) + 1 : 11;
+    return products.length > 0
+      ? Math.max(...products.map((product) => product.id)) + 1
+      : 11;
   }
 }

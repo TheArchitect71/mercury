@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 import { Product } from '../product-interface';
 import { AdminService } from '../admin/admin.service';

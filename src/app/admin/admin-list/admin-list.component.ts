@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Product } from 'src/app/product-interface';
 
 import { AdminService } from 'src/app/admin/admin.service';
@@ -10,8 +11,9 @@ import { AdminService } from 'src/app/admin/admin.service';
 })
 export class AdminListComponent implements OnInit {
   products: Product[];
-
+  panelOpenState = false; 
   selectedProduct: Product;
+
   constructor(
     private adminService: AdminService,
   ) {}

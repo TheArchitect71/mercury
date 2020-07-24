@@ -1,17 +1,57 @@
 <h2>My Products</h2>
 <app-product-search></app-product-search>
 <div>
-  <label>Add a Product:
+  <label
+    >Add a Product:
     <input #productName />
   </label>
-  <button (click)="add(productName.value); productName.value=''">Add</button>
 </div>
-<ul class="products">
-  <li *ngFor="let product of products">
-    <a routerLink="/detail/{{ product.id }}">
-      <span class="badge">{{ product.id }}</span> {{ product.name }}
-    </a>
-    <button class="delete" title="delete product" (click)="delete(product)">x</button>
-  </li>
-</ul>
 
+<mat-accordion>
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    *ngFor="let product of products"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ product.name }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ product.price | currency }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>{{ product.description }}</p>
+    <button
+      mat-raised-button
+      color="accent"
+      class="edit"
+      title="Edit {{ product.name }}"
+      routerLink="/detail/{{ product.id }}"
+    >
+      <span class="material-icons">
+        create
+      </span>
+      Edit
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      class="delete"
+      title="Delete {{ product.name }}"
+      (click)="delete(product)"
+    >
+      <span class="material-icons">
+        delete
+      </span>
+      Delete
+    </button>
+  </mat-expansion-panel>
+</mat-accordion>
+<button
+  mat-fab
+  aria-label="Add a product"
+  (click)="add(productName.value); productName.value = ''"
+>
+  <mat-icon>add</mat-icon>
+</button>

@@ -4,6 +4,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AngularMaterialModule } from 'src/app/angular-material.module';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -24,13 +27,15 @@ import { ProductSearchComponent } from './product-search/product-search.componen
 @NgModule({
   imports: [
     BrowserModule,
-    HttpClientModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
+    AngularMaterialModule,
+    HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
   ],
   declarations: [
     AppComponent,

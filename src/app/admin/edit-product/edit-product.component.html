@@ -1,20 +1,53 @@
 <div *ngIf="product">
   <h2>{{ product.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{ product.id }}</div>
-  <div>
-    <label
-      >name:
-      <input [(ngModel)]="product.name" placeholder="name" />
-    </label>
-    <label
-      >description:
-      <input [(ngModel)]="product.description" placeholder="description" />
-    </label>
-    <label
-      >price:
-      <input [(ngModel)]="product.price" placeholder="price" />
-    </label>
-  </div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+  <!-- <div><span>id: </span>{{ product.id }}</div> -->
+ <!-- FORM -->
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="example-form">
+    <!-- Name of Product -->
+    <mat-form-field class="example-full-width">
+      <mat-label>Product Name</mat-label>
+      <input
+        [(ngModel)]="product.name"
+        formControlName="name"
+        maxlength="30"
+        matInput
+        placeholder="Limit to 30 characters"
+      />
+    </mat-form-field>
+    <!-- Description of Product -->
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <textarea
+        [(ngModel)]="product.description"
+        formControlName="description"
+        maxlength="140"
+        matInput
+        placeholder="a sort, kind, or class"
+      ></textarea>
+    </mat-form-field>
+    <!-- Price of Product -->
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input
+        [(ngModel)]="product.price"
+        formControlName="price"
+        matInput
+        type="number"
+        class="example-right-align"
+      />
+      <span matPrefix>$&nbsp;</span>
+      <span matSuffix>.00</span>
+    </mat-form-field>
+    <br />
+    <!-- Buttons -->
+    <button mat-raised-button class="space" color="primary" (click)="goBack()">
+      <span class="material-icons">
+        arrow_back
+      </span>
+      Go Back
+    </button>
+    <button mat-raised-button color="accent" (click)="save()">
+      Update Product
+    </button>
+  </form>
 </div>
