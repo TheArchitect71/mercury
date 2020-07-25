@@ -12,21 +12,21 @@ export class InMemoryDataService implements InMemoryDbService {
         id: 11,
         name: 'Acapulco Gold',
         description:
-          'Curabitur ac nulla risus.',
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in",
         price: 45,
       },
       {
         id: 12,
         name: 'Ace of Spades',
         description:
-          'Curabitur ac nulla risus.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in',
         price: 40,
       },
       {
         id: 13,
         name: 'Alien Cookies',
         description:
-          'Curabitur ac nulla risus.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in',
         price: 36,
       },
       {

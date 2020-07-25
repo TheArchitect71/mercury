@@ -21,32 +21,32 @@
         {{ product.price | currency }}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>{{ product.description }}</p>
-    <button
+      <p>{{ product.description }}</p>
+      <button
       mat-raised-button
       color="accent"
       class="edit"
       title="Edit {{ product.name }}"
       routerLink="/detail/{{ product.id }}"
-    >
+      >
       <span class="material-icons">
         create
       </span>
       Edit
     </button>
     <button
-      mat-raised-button
-      color="warn"
-      class="delete"
-      title="Delete {{ product.name }}"
-      (click)="delete(product)"
+    mat-raised-button
+    color="warn"
+    class="delete"
+    title="Delete {{ product.name }}"
+    (click)="delete(product)"
     >
-      <span class="material-icons">
-        delete
-      </span>
-      Delete
-    </button>
-  </mat-expansion-panel>
+    <span class="material-icons">
+      delete
+    </span>
+    Delete
+  </button>
+</mat-expansion-panel>
 </mat-accordion>
 <button
   mat-fab
