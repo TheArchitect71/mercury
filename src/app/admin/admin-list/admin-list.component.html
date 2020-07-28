@@ -51,7 +51,7 @@
 <button
   mat-fab
   aria-label="Add a product"
-  (click)="add(productName.value); productName.value = ''"
+  [routerLink]="['/add-product']" routerLinkActive="router-link-active" 
 >
   <mat-icon>add</mat-icon>
 </button>

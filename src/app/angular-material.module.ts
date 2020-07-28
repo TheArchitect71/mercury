@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import {MatListModule} from '@angular/material/list';
+import {MatChipsModule} from '@angular/material/chips'; 
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MatListModule} from '@angular/material/list';
     MatInputModule,
     MatFormFieldModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatChipsModule
   ],
 })
 export class AngularMaterialModule {}

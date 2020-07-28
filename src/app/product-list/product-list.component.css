@@ -2,14 +2,19 @@
     max-width: 280px;
     margin-bottom: 2em;
     margin-right: 2em;
-  }
-  
-  .example-header-image {
-    background-size: cover;
+    margin-left: 2em;
   }
   .content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+  mat-chip-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  mat-card-actions {
+    justify-content: center;
+    display: flex;
+  }

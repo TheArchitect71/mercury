@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'shipping', component: ShippingComponent },
   { path: 'admin/list', component: AdminListComponent},
   { path: 'orders', component: OrdersComponent},
+  { path: 'add-product', component: EditProductComponent},
   { path: 'detail/:id', component: EditProductComponent}
 ];
 

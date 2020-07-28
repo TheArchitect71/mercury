@@ -1,10 +1,36 @@
 <h2>Product Details</h2>
-
-<div *ngIf="product">
-  <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency }}</h4>
-  <p>{{ product.description }}</p>
-
-  <button (click)="addToCart(product)">Buy</button>
-  <button (click)="goBack()">go back</button>
-</div>
+<h3>{{ product.name }}</h3>
+<h4>Hybrid</h4>
+<!-- Grid -->
+<mat-grid-list cols="4" rowHeight="100px" gutterSize="10">
+  <mat-grid-tile
+    *ngFor="let tile of tiles"
+    [colspan]="tile.cols"
+    [rowspan]="tile.rows"
+    [style.background]="tile.color"
+  >
+    {{ tile.text }}
+    <img src="{{tile.image}}" alt="" layout-fill> 
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-chip-list aria-label="summary chips">
+  <mat-chip>{{ product.price | currency }}</mat-chip>
+  <mat-chip>Medium</mat-chip>
+  <mat-chip>Blueberry</mat-chip>
+</mat-chip-list>
+<p *ngIf="product.description">
+  {{ product.description }}
+</p>
+<mat-card-actions>
+  <button mat-raised-button (click)="goBack()">
+    <span class="material-icons">
+      arrow_back </span
+    >Go Back
+  </button>
+  <button mat-raised-button color="primary" (click)="addToCart(product)">
+    <span class="material-icons">
+      add_shopping_cart
+    </span>
+    Add to Cart
+  </button>
+</mat-card-actions>
