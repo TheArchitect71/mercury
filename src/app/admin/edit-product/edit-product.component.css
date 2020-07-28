@@ -10,3 +10,6 @@
 .space {
   margin-right: 10px;
 }
+mat-grid-list {
+  margin-bottom: 2em;
+}
