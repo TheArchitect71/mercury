@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Product } from 'src/app/product-interface';
@@ -13,18 +13,40 @@ import { FormGroup, FormControl, FormBuilder, Form } from '@angular/forms';
 })
 export class EditProductComponent implements OnInit {
   hide = true;
-  editMode: false;
-  
-  // productForm = new FormGroup({
-  //   name: new FormControl(''),
-  //   description: new FormControl(''),
-  //   price: new FormControl('')
-  // });
+  private editMode: boolean;
+  private id: string;
+
+  tiles = [
+    {
+      cols: 1,
+      rows: 1,
+      color: 'lightblue',
+      image: './assets/Muffins/Screen Shot 2020-07-26 at 2.09.17 PM.png',
+    },
+    {
+      cols: 1,
+      rows: 1,
+      color: 'lightgreen',
+      image: './assets/Muffins/Screen Shot 2020-07-26 at 2.09.05 PM.png',
+    },
+    {
+      cols: 1,
+      rows: 1,
+      color: 'lightpink',
+      image: './assets/Muffins/Screen Shot 2020-07-26 at 2.09.34 PM.png',
+    },
+    {
+      cols: 1,
+      rows: 1,
+      color: '#DDBDF1',
+      image: './assets/Muffins/Screen Shot 2020-07-26 at 2.09.53 PM.png',
+    },
+  ];
 
   productForm = this.formBuilder.group({
     name: [''],
     description: [''],
-    price: []
+    price: [],
   });
 
   product: Product;
@@ -47,13 +69,14 @@ export class EditProductComponent implements OnInit {
 
   getProduct(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.adminService.getProduct(id).subscribe(product => {
+    this.adminService.getProduct(id).subscribe((product) => {
       this.product = product;
-    })
+    });
   }
 
   save(): void {
-    this.adminService.updateProduct(this.product)
+    this.adminService
+      .updateProduct(this.product)
       .subscribe(() => this.goBack());
   }
 
@@ -65,8 +88,7 @@ export class EditProductComponent implements OnInit {
     this.productForm.patchValue({
       name: 'Miguel',
       description: 'Sanchez',
-      price: 15
-    })
+      price: 15,
+    });
   }
 }
-
