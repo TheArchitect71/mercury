@@ -1,23 +1,49 @@
-# Mercury / Mellow Muffins
+# Mercury — Mellow Muffins
 
-Angular 22 shopping demo with a local in-memory API.
+A muffin shop demo with product browsing, a shopping cart, and an administration area. Angular uses a local in-memory API, so you can explore the whole demo without a backend or account.
 
-## Run
+## What you can do
+
+- Browse nine sample products and view product details.
+- Add products to a cart and compare shipping prices.
+- Search, create, edit, and delete products in the admin area.
+- View example orders and application notifications.
+
+## Preview
+
+![A muffin shop demo with product browsing, a shopping cart, and an administration area](docs/screenshots/desktop.png)
+
+Captured from the running application on September 30, 2026. Any sample records shown are demonstration or isolated test data, not data included with a fresh installation.
+
+<details>
+<summary>Mobile view</summary>
+
+![Mobile a muffin shop demo with product browsing, a shopping cart, and an administration area](docs/screenshots/mobile.png)
+
+</details>
+
+## Run locally
+
+Use the Node version in `.nvmrc` (currently 26.10.0) and npm. Run these commands from the repository root.
 
 ```sh
-nvm use  # Node 26.10.0, pinned in .nvmrc
+nvm use  # if you manage Node with nvm
 npm ci
 npm start
 ```
 
-Foreground localhost4200; Ctrl+C to stop. Nine products and example orders live in the in-memory API; reload restores fixtures. Cart Purchase retains its original demonstration behavior: clears cart/form and logs submitted details, without charging or persisting an order. This is distinct from Risa's online Stripe checkout.
+Open [http://127.0.0.1:4200](http://127.0.0.1:4200). Keep the server in the foreground; stop it with **Ctrl+C**.
 
-Catalog/detail/cart/shipping/adminsearch/edit/add/delete/notifications remain. The previously broken add-product route now initializes an empty form; save uses create/update appropriately. Reactiveforms replace deprecated ngModel mixing. Original gallery screenshots were absent from both checkouts. The catalog's existing public muffin image is now bundled at assets/product.png and reused for those missing slots; no remote requests needed. Source: https://i.pinimg.com/originals/56/cf/33/56cf331bc11c0097b7ba5c10fbca8b62.png
+## Current scope
 
-## Validate
+The Purchase action clears the cart and form and logs the entered details; it does not charge a card or persist an order. Reloading restores the in-memory sample data. The bundled muffin illustration comes from the [original catalog image](https://i.pinimg.com/originals/56/cf/33/56cf331bc11c0097b7ba5c10fbca8b62.png).
 
-`npm run build`, `npm run typecheck`, `npm test -- --browsers=ChromeHeadless`, `npm audit`. Set CHROME_BIN if needed.
+## Development
 
-Angular22.2.0, MaterialCDK22.2.1, angular-in-memory-web-api0.22.0 (requires Angular^22), RxJS7.8.2/Zone0.16.3, Node26.10.0. TS6.0.3 held by Angular>=6<6.1; Jasmine6.3/types6 held due Jasmine7/zone-testing read-only global conflict. Current nativebuilder/moduleEagerZone/currentchips/localimports/Untypedforms. [Official Angular compatibility](https://angular.dev/reference/versions).
+```sh
+npm run build
+npm run typecheck
+npm test -- --browsers=ChromeHeadless
+```
 
-Cleaninstall/audit0/build/types and17Chromiumtests passed, including realin-memoryCRUD/search. ProductionPlaywrightdesktop1280x800/mobile390x844 passed catalog9/localimages/details/addtocart/shipping/purchasedemo/adminsearch/edit/add/delete/noerrors/overflow/externalrequests. Browserpluginabsent; existingPlaywright/Chromium148 used. Evidence/source snapshots outside repo in Codex/missionfolders. Other browsers/unexercisedexample-orderviews remain unverified.
+Browser tests require Chrome or Chromium; set `CHROME_BIN` if it is outside the standard installation path. Angular 22 currently requires TypeScript 6.0.x. The Jasmine 6 test dependencies are retained for compatibility with Zone.js.
