@@ -5,9 +5,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { MessageService } from '../feedback/message.service';
 
-import { Product } from 'src/app/product-interface';
-import { Order } from 'src/app/order-interface';
-import { ORDERS } from 'src/app/orders';
+import { Product } from '../product-interface';
+import { Order } from '../order-interface';
+import { ORDERS } from '../orders';
 
 @Injectable({
   providedIn: 'root',

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, provideZoneChangeDetection } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AngularMaterialModule } from 'src/app/angular-material.module';
+import { AngularMaterialModule } from './angular-material.module';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -34,7 +34,7 @@ import { ProductSearchComponent } from './product-search/product-search.componen
     AngularMaterialModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+      InMemoryDataService, { dataEncapsulation: false, passThruUnknownUrl: true }
     ),
   ],
   declarations: [
@@ -51,6 +51,7 @@ import { ProductSearchComponent } from './product-search/product-search.componen
     OrdersComponent,
     ProductSearchComponent,
   ],
+  providers: [provideZoneChangeDetection()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
