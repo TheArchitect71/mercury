@@ -6,7 +6,7 @@
       aria-label="Example icon-button with menu icon"
       (click)="snav.toggle()"
     >
-      <mat-icon>menu</mat-icon>
+      <span aria-hidden="true">☰</span>
     </button>
     <a mat-button-flat class="example-app-name" routerLink="/"
       >Mellow Muffins</a
@@ -18,7 +18,7 @@
       aria-label="icon-button with checkout icon"
       routerLink="/cart"
     >
-      <i class="material-icons">shopping_cart</i>
+      <span aria-hidden="true">🛒</span>
     </button>
   </mat-toolbar>
 
@@ -38,7 +38,7 @@
           aria-label="icon-item with user icon"
           routerLink="/admin/list"
         >
-          <i class="material-icons"> account_circle</i>Profile
+          <span aria-hidden="true">●</span>Profile
         </a>
         <a
           mat-list-item
@@ -46,7 +46,7 @@
           aria-label="icon-item with checkout icon"
           routerLink="/orders"
         >
-          <i class="material-icons">description</i> Orders
+          <span aria-hidden="true">▤</span> Orders
         </a>
       </mat-nav-list>
     </mat-sidenav>

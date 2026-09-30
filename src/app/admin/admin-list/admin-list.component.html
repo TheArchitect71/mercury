@@ -29,9 +29,7 @@
       title="Edit {{ product.name }}"
       routerLink="/detail/{{ product.id }}"
       >
-      <span class="material-icons">
-        create
-      </span>
+      <span aria-hidden="true">✎</span>
       Edit
     </button>
     <button
@@ -41,9 +39,7 @@
     title="Delete {{ product.name }}"
     (click)="delete(product)"
     >
-    <span class="material-icons">
-      delete
-    </span>
+    <span aria-hidden="true">×</span>
     Delete
   </button>
 </mat-expansion-panel>
@@ -53,5 +49,5 @@
   aria-label="Add a product"
   [routerLink]="['/add-product']" routerLinkActive="router-link-active" 
 >
-  <mat-icon>add</mat-icon>
+  <span aria-hidden="true">+</span>
 </button>

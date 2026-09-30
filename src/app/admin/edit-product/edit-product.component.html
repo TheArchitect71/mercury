@@ -1,12 +1,12 @@
+<section *ngIf="product">
 <h2>{{ product.name | uppercase }} Details</h2>
 <!-- <div><span>id: </span>{{ product.id }}</div> -->
 <!-- FORM -->
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="example-form">
+<form [formGroup]="productForm" (ngSubmit)="save()" class="example-form">
   <!-- Name of Product -->
   <mat-form-field class="example-full-width">
     <mat-label>Product Name</mat-label>
     <input
-      [(ngModel)]="product.name"
       formControlName="name"
       maxlength="30"
       matInput
@@ -17,7 +17,6 @@
   <mat-form-field class="example-full-width">
     <mat-label>Description</mat-label>
     <textarea
-      [(ngModel)]="product.description"
       formControlName="description"
       maxlength="140"
       matInput
@@ -28,7 +27,6 @@
   <mat-form-field>
     <mat-label>Amount</mat-label>
     <input
-      [(ngModel)]="product.price"
       formControlName="price"
       matInput
       type="number"
@@ -44,18 +42,18 @@
       [rowspan]="tile.rows"
       [style.background]="tile.color"
     >
-      {{ tile.text }}
+
       <img src="{{ tile.image }}" alt="" layout-fill />
     </mat-grid-tile>
   </mat-grid-list>
   <!-- Buttons -->
-  <button mat-raised-button class="space" color="primary" (click)="goBack()">
-    <span class="material-icons">
-      arrow_back
-    </span>
+  <button mat-raised-button class="space" color="primary" type="button" (click)="goBack()">
+    <span aria-hidden="true">←</span>
     Go Back
   </button>
-  <button type="submit" mat-raised-button color="accent" (click)="save()">
+  <button type="submit" mat-raised-button color="accent" >
     Update Product
   </button>
 </form>
+
+</section>

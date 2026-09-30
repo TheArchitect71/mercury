@@ -1,3 +1,4 @@
+<section *ngIf="product">
 <h2>Product Details</h2>
 <h3>{{ product.name }}</h3>
 <h4>Hybrid</h4>
@@ -9,15 +10,15 @@
     [rowspan]="tile.rows"
     [style.background]="tile.color"
   >
-    {{ tile.text }}
-    <img src="{{tile.image}}" alt="" layout-fill> 
+
+    <img src="{{tile.image}}" alt="" layout-fill>
   </mat-grid-tile>
 </mat-grid-list>
-<mat-chip-list aria-label="summary chips">
+<mat-chip-set aria-label="summary chips">
   <mat-chip>{{ product.price | currency }}</mat-chip>
   <mat-chip>Medium</mat-chip>
   <mat-chip>Blueberry</mat-chip>
-</mat-chip-list>
+</mat-chip-set>
 <p *ngIf="product.description">
   {{ product.description }}
 </p>
@@ -28,9 +29,9 @@
     >Go Back
   </button>
   <button mat-raised-button color="primary" (click)="addToCart(product)">
-    <span class="material-icons">
-      add_shopping_cart
-    </span>
+    <span aria-hidden="true">+</span>
     Add to Cart
   </button>
 </mat-card-actions>
+
+</section>

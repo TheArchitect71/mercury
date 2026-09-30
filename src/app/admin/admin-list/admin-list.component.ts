@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Product } from 'src/app/product-interface';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { UntypedFormControl } from '@angular/forms';
+import { Product } from '../../product-interface';
 
-import { AdminService } from 'src/app/admin/admin.service';
+import { AdminService } from '../admin.service';
 
-@Component({
+@Component({standalone:false,changeDetection:ChangeDetectionStrategy.Eager,
   selector: 'app-admin-list',
   templateUrl: './admin-list.component.html',
   styleUrls: ['./admin-list.component.css'],
