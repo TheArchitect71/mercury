@@ -10,15 +10,15 @@
       </mat-card-header>
       <img
         mat-card-image
-        src="https://i.pinimg.com/originals/56/cf/33/56cf331bc11c0097b7ba5c10fbca8b62.png"
+        src="assets/product.png"
         alt="Photo of muffin"
       />
       <mat-card-content>
-        <mat-chip-list aria-label="summary chips">
+        <mat-chip-set aria-label="summary chips">
           <mat-chip>{{ product.price | currency }}</mat-chip>
           <mat-chip>Medium</mat-chip>
           <mat-chip>Blueberry</mat-chip>
-        </mat-chip-list>
+        </mat-chip-set>
       </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary" routerLink="/product-details/{{ product.id }}">

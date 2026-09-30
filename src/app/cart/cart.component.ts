@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { UntypedFormBuilder } from '@angular/forms';
 import { CartService } from '../cart.service';
 
-@Component({
+@Component({standalone:false,changeDetection:ChangeDetectionStrategy.Eager,
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
@@ -10,7 +10,7 @@ import { CartService } from '../cart.service';
 export class CartComponent implements OnInit {
   items;
   checkoutForm;
-  constructor(private cartService: CartService, private formBuilder: FormBuilder,) {
+  constructor(private cartService: CartService, private formBuilder: UntypedFormBuilder,) {
     this.checkoutForm = this.formBuilder.group({
       name: '',
       address: ''

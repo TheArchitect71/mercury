@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Product } from 'src/app/product-interface';
+import { Product } from '../../product-interface';
 import { AdminService } from '../admin.service';
-import { FormGroup, FormControl, FormBuilder, Form } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, UntypedFormBuilder } from '@angular/forms';
 
-@Component({
+@Component({standalone:false,changeDetection:ChangeDetectionStrategy.Eager,
   selector: 'app-edit-product',
   templateUrl: './edit-product.component.html',
   styleUrls: ['./edit-product.component.css'],
@@ -21,25 +21,25 @@ export class EditProductComponent implements OnInit {
       cols: 1,
       rows: 1,
       color: 'lightblue',
-      image: './assets/Muffins/Screen Shot 2020-07-26 at 2.09.17 PM.png',
+      image: 'assets/product.png',
     },
     {
       cols: 1,
       rows: 1,
       color: 'lightgreen',
-      image: './assets/Muffins/Screen Shot 2020-07-26 at 2.09.05 PM.png',
+      image: 'assets/product.png',
     },
     {
       cols: 1,
       rows: 1,
       color: 'lightpink',
-      image: './assets/Muffins/Screen Shot 2020-07-26 at 2.09.34 PM.png',
+      image: 'assets/product.png',
     },
     {
       cols: 1,
       rows: 1,
       color: '#DDBDF1',
-      image: './assets/Muffins/Screen Shot 2020-07-26 at 2.09.53 PM.png',
+      image: 'assets/product.png',
     },
   ];
 
@@ -55,7 +55,7 @@ export class EditProductComponent implements OnInit {
     private adminService: AdminService,
     private route: ActivatedRoute,
     private location: Location,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -68,16 +68,14 @@ export class EditProductComponent implements OnInit {
   }
 
   getProduct(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.adminService.getProduct(id).subscribe((product) => {
-      this.product = product;
-    });
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (!id) { this.product = {name:'', description:'', price:0} as Product; return; }
+    this.adminService.getProduct(id).subscribe(product=>{this.product=product; if(product)this.productForm.patchValue(product);});
   }
-
   save(): void {
-    this.adminService
-      .updateProduct(this.product)
-      .subscribe(() => this.goBack());
+    const value = {...this.product,...this.productForm.value};
+    const action = this.product.id ? this.adminService.updateProduct(value) : this.adminService.addProduct(value);
+    action.subscribe(()=>this.goBack());
   }
 
   goBack(): void {

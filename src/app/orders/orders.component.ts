@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Order } from 'src/app/order-interface';
-import { AdminService } from 'src/app/admin/admin.service';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Order } from '../order-interface';
+import { AdminService } from '../admin/admin.service';
 
-@Component({
+@Component({standalone:false,changeDetection:ChangeDetectionStrategy.Eager,
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']

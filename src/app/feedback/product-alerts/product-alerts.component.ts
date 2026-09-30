@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
 
-@Component({
+@Component({standalone:false,changeDetection:ChangeDetectionStrategy.Eager,
   selector: 'app-product-alerts',
   templateUrl: './product-alerts.component.html',
   styleUrls: ['./product-alerts.component.css']
